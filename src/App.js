@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+// 
 
 const App = () => {
+  // state variable is used to manage the input data and form input
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [editId, setEditId] = useState(0);
-
+// function to handle form submission 
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -29,18 +31,18 @@ const App = () => {
       setTodo("");
     }
   };
-
+// function for handling deletion
   const handleDelete = (id) => {
     const delTodo = todos.filter((to) => to.id !== id);
     setTodos([...delTodo]);
   };
-
+// function for editing todo list
   const handleEdit = (id) => {
     const editTodo = todos.find((i) => i.id === id);
     setTodo(editTodo.todo);
     setEditId(id);
   };
-
+// jsx to define the structure of application UI
   return (
     <div className="App">
       <div className="container">
